@@ -6,6 +6,7 @@
 body, html {
     height: 100%;
     position: relative;
+
 }
 
 .bg-image {
@@ -23,7 +24,6 @@ body, html {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: red;
     filter: blur(1.5px);
     z-index: -1;
 }
@@ -44,7 +44,7 @@ body, html {
 }
 
 #main .center-weather {
-    margin-top: 150px;
+    margin-top: 100px;
     text-align: center;
     padding: 15px;
     color: snow;
@@ -70,6 +70,10 @@ body, html {
 .center-weather hr {
     border-width: small;
     border-color: black;
+}
+
+.weather-info p {
+  color: black;
 }
 
 .weather-info #temperature {
@@ -160,6 +164,9 @@ input:checked+.slider:before {
     border-radius: 50%;
 }
 
+#switch-button {
+  text-align: center;
+}
 
 /* End of switch button */
 
