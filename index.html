@@ -10,29 +10,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Khula" rel="stylesheet">
 </head>
 
 <body id="main">
     <div class="bg-image"></div>
     <div class="container-fluid">
         <h1 class="text-center">Weather In Your Area</h1>
+        <!-- Rounded switch -->
+        <label class="switch">
+          <input type="checkbox">
+          <div class="slider round"></div>
+        </label>
         <!-- Container for weather conditions. -->
         <div class="center-weather">
             <!-- Make the bg box transparent -->
             <div class="opacity"></div>
-            <!-- But make the text not transparent --> 
+            <!-- But make the text not transparent -->
             <div class="weather-info">
-                <p id="location">Location</p>
-                <hr>
-                <p id="temperature">Temperature Value</p>
-                <p id="type">F/C &#176;</p>
-                <div class="separator"></div>
-                <hr>
                 <div class="icon">
                     <p>Weather Icon</p>
                 </div>
+                <p id="temperature">XXX</p>
+                <p id="type">F/C &#176;</p>
+                <div class="separator"></div>
+
+                <hr>
+                <p id="location">Location</p>
                 <hr>
                 <p>Additional Info #1</p>
+                <hr>
                 <p>Additional Info #2</p>
             </div>
         </div>
