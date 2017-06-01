@@ -1,7 +1,10 @@
 'use strict'
 $(document).ready(function() {
 
-    var temperature, highTemp, lowTemp;
+    var temperature, highTemp, lowTemp, icon;
+    var skycons = new Skycons({
+        "color": "snow"
+    });
 
     // HTML5 Geolocation.
     function getCoordinates() {
@@ -27,9 +30,32 @@ $(document).ready(function() {
             temperature = Math.floor(forecast.currently.temperature);
             highTemp = Math.floor(forecast.daily.data[0].apparentTemperatureMax);
             lowTemp = Math.floor(forecast.daily.data[0].apparentTemperatureMin);
+            icon = forecast.currently.icon;
+
+            if (icon === "clear-day") {
+                skycons.add(document.getElementById("icon"), Skycons.CLEAR_DAY);
+            } else if (icon === "clear-night") {
+                skycons.add(document.getElementById("icon"), Skycons.CLEAR_NIGHT);
+            } else if (icon === "partly-cloudy-day") {
+                skycons.add(document.getElementById("icon"), Skycons.PARTLY_CLOUDY_DAY);
+            } else if (icon === "partly-cloudy-night") {
+                skycons.add(document.getElementById("icon"), Skycons.PARTLY_CLOUDY_NIGHT);
+            } else if (icon === "cloudy") {
+                skycons.add(document.getElementById("icon"), Skycons.CLOUDY);
+            } else if (icon === "rain") {
+                skycons.add(document.getElementById("icon"), Skycons.RAIN);
+            } else if (icon === "sleet") {
+                skycons.add(document.getElementById("icon"), Skycons.SLEET);
+            } else if (icon === "snow") {
+                skycons.add(document.getElementById("icon"), Skycons.SNOW);
+            } else if (icon === "wind") {
+                skycons.add(document.getElementById("icon"), Skycons.WIND);
+            } else {
+                skycons.add(document.getElementById("icon"), Skycons.FOG);
+            }
+            skycons.play();
 
             var humidity = forecast.currently.humidity,
-                icon = forecast.currently.icon,
                 summary = forecast.currently.summary,
                 precipChance = forecast.currently.precipProbability,
                 windSpeed = forecast.currently.windSpeed,
@@ -37,7 +63,6 @@ $(document).ready(function() {
 
             // Apply values to the HTML.
             $('#location').text(prettify(location));
-            $('#icon').text(icon);
             $('#temperature').text(temperature);
             $('#high').text(highTemp);
             $('#low').text(lowTemp);
@@ -78,20 +103,5 @@ $(document).ready(function() {
     var geoNavigator = getCoordinates();
     geoNavigator.getCurrentPosition(success);
 
+
 });
-
-/*
-var xhr = new XMLHttpRequest(),
-    darkSkyHTTP = "https://api.darksky.net/forecast/" + key + '/' + lat + ',' + long;
-xhr.open('GET', darkSkyHTTP, true);
-xhr.send();
-xhr.onreadystatechange = processRequest;
-xhr.addEventListener("readystatechange" , processRequest, false);
-
-function processRequest(e) {
-  if (xhr.readyState === 4 && xhr.status === 200) {
-    var weatherData = JSON.parse(xhr.responseText);
-    alert(weatherData);
-  }
-}
-*/
