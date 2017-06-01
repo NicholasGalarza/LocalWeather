@@ -45,10 +45,29 @@ $(document).ready(function() {
         }
 
         function prettify(string) {
-          return string.replace(/[/]/g, ', ').replace(/[_]/g, ' ');
+            return string.replace(/[/]/g, ', ').replace(/[_]/g, ' ').toUpperCase();
         }
     }
+
     getCoordinates(); // <-- hopefully this works.
+    // Button conversion for Fahrenheight to Celcius.
+    var fahrenheight = true; // is Fahrenheight.
+    $("#switch-button").click(function() {
+        // Convert to Celcius.
+        if (fahrenheight) {
+            $('#temperature').text(Math.floor((temperature - 32) * (5 / 9)));
+            $('#high').text(Math.floor((highTemp - 32) * (5 / 9)));
+            $('#low').text(Math.floor((lowTemp - 32) * (5 / 9)));
+            fahrenheight = false;
+            return;
+        } else {
+            fahrenheight = true;
+            $('#temperature').text(temperature);
+            $('#high').text(highTemp);
+            $('#low').text(lowTemp);
+            return;
+        }
+    });
 });
 
 /*
