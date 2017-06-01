@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Khula" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
 </head>
 
 <body id="main">
@@ -18,55 +19,62 @@
     <div class="container-fluid">
         <h1>Weather In Your Area</h1>
 
-        <!-- Rounded switch -->
-        <div id="switch-button">
-            <label class="switch">
-            <div class="separator"></div>
-            <input type="checkbox">
-            <div class="slider round"></div>
-          </label>
-        </div>
-
-        <!-- Container for weather conditions. -->
-        <div class="center-weather">
-            <!-- Make the bg box transparent -->
-            <div class="opacity"></div>
-            <p id="location">Location</p>
-            <hr>
-            <!-- But make the text not transparent -->
-            <div class="weather-info">
-                <div class="box" id="icon">ICON</div>
-                <!-- Weather Icon & temperature -->
-                <div class="box">
-                    <p>Temperature</p>
-                    <div id="temperature"></div>
-                    <div id="type">&#176;F</div>
-                </div>
-
-                <div class="box">
-                    <p>Precipitation</p>
-
-                    <div id="precipChance">chance</div>
-                    <div id="type"> %</div>
-                </div>
-
-                <div class="box">
-                    <p>Wind</p>
-                    <div id="windSpeed"></div>
-                    <div id="type"> mph</div>
-                </div>
-
-                <div class="box">
-                    <p>Humidity</p>
-                    <div id="humidity"></div>
-                </div>
-
-                <div class="box">
-                    <p>Summary</p>
-                    <div id="summary"></div>
-                </div>
+        <div class="outer">
+            <!-- Rounded switch -->
+            <div id="switch-button">
+              <p id="F">F</p>
+              <label class="switch">
+              <input type="checkbox">
+              <div class="slider round"></div>
+              </label>
+              <p id="C">C</p>
             </div>
-            <!-- end of flex box -->
+            <!-- Container for weather conditions. -->
+            <div class="center-weather">
+                <!-- Make the bg box transparent -->
+                <div class="opacity"></div>
+                <p id="location">Location</p>
+                <hr>
+                <!-- But make the text not transparent -->
+                <div class="weather-info">
+                    <div class="box" id="icon">ICON</div>
+                    <!-- Weather Icon & temperature -->
+                    <div class="box">
+                        <p>Temperature</p>
+                        <div id="temperature"></div>
+                        <div class="inlineSlash">&#176; / </div>
+                        <div id="high"></div>
+                        <div class="inlineSlash">&#176; / </div>
+                        <div id="low"></div>
+                        <div class="inlineSlash">&#176;</div>
+                        <div id="type">F</div>
+                    </div>
+
+                    <div class="box">
+                        <p>Precipitation</p>
+
+                        <div id="precipChance"></div>
+                        <div id="type"> %</div>
+                    </div>
+
+                    <div class="box">
+                        <p>Wind</p>
+                        <div id="windSpeed"></div>
+                        <div id="type"> (mph)</div>
+                    </div>
+
+                    <div class="box">
+                        <p>Humidity</p>
+                        <div id="humidity"></div>
+                    </div>
+
+                    <div class="box">
+                        <p>Summary</p>
+                        <div id="summary"></div>
+                    </div>
+                </div>
+                <!-- end of flex box -->
+            </div>
         </div>
         <!-- end of main content -->
     </div>

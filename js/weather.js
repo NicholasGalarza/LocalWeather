@@ -18,7 +18,9 @@ $(document).ready(function() {
             // treats the GET request as JSONP to work around cross site limitations.
             $.getJSON("https://api.darksky.net/forecast/" + key + '/' + latitude + ',' + longitude + "?callback=?", function(forecast) {
                 // Extract values for current temperature.
-                var temperature = forecast.currently.temperature,
+                var temperature = Math.floor(forecast.currently.temperature),
+                    highTemp = Math.floor(forecast.daily.data[0].apparentTemperatureMax),
+                    lowTemp = Math.floor(forecast.daily.data[0].apparentTemperatureMin),
                     humidity = forecast.currently.humidity,
                     icon = forecast.currently.icon,
                     summary = forecast.currently.summary,
@@ -27,11 +29,13 @@ $(document).ready(function() {
                     location = forecast.timezone;
 
                 // Apply values to the HTML.
-                $('#location').text(location);
+                $('#location').text(prettify(location));
                 $('#icon').text(icon);
                 $('#temperature').text(temperature);
+                $('#high').text(highTemp);
+                $('#low').text(lowTemp);
                 $('#precipChance').text(precipChance);
-                $('#summary').text(summary);
+                $('#summary').text('"' + summary + '"');
                 $('#windSpeed').text(windSpeed);
                 $('#humidity').text(humidity);
 
@@ -41,7 +45,7 @@ $(document).ready(function() {
         }
 
         function prettify(string) {
-          return string.replace([/], ',');
+          return string.replace(/[/]/g, ', ').replace(/[_]/g, ' ');
         }
     }
     getCoordinates(); // <-- hopefully this works.
