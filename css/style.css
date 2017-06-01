@@ -6,7 +6,6 @@
 body, html {
     height: 100%;
     position: relative;
-
 }
 
 .bg-image {
@@ -44,10 +43,9 @@ body, html {
 }
 
 #main .center-weather {
-    margin-top: 100px;
-    text-align: center;
-    padding: 15px;
-    color: snow;
+    margin-top: 25px;
+    padding: 10px;
+    color: black;
     font-weight: bold;
     position: relative;
 }
@@ -67,34 +65,28 @@ body, html {
     z-index: -1;
 }
 
-.center-weather hr {
-    border-width: small;
-    border-color: black;
+#location {
+  text-align: center;
+}
+
+.weather-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.weather-info .box {
+  text-align: center;
+  width: 49%;
 }
 
 .weather-info p {
   color: black;
 }
 
-.weather-info #temperature {
-    float: left;
-    width: 60%;
-    font-size: 20px;
+.weather-info #temperature, #type, #precipType, #precipChance, #windSpeed{
+    display: inline-block;
+    font-size: 18px;
 }
-
-.weather-info #type {
-    font-size: 20px;
-    float: left;
-    width: 30%;
-}
-
-.center-weather .separator {
-    clear: both;
-}
-
-
-/* Switch CSS */
-
 
 /* The switch - the box around the slider */
 
@@ -104,7 +96,6 @@ body, html {
     width: 60px;
     height: 34px;
 }
-
 
 /* Hide default HTML checkbox */
 
@@ -177,15 +168,5 @@ input:checked+.slider:before {
     .center-weather {
         margin-left: 12%;
         margin-right: 12%;
-    }
-    .weather-info .icon {
-        float: left;
-        width: 60%;
-    }
-    .weather-info #temperature {
-        width: 30%;
-    }
-    .weather-info #type {
-        width: 10%;
     }
 }

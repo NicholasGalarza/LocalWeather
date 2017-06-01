@@ -1,3 +1,4 @@
+'use strict'
 $(document).ready(function() {
     // HTML5 Geolocation.
     function getCoordinates() {
@@ -12,9 +13,35 @@ $(document).ready(function() {
             var latitude = position.coords.latitude,
                 longitude = position.coords.longitude;
 
+            // getJSON() is a shorthand to ajax() and allows you to get the JSON object straight away.
+            // additionally, "callback=?" is appended because this is making an external request and
+            // treats the GET request as JSONP to work around cross site limitations.
             $.getJSON("https://api.darksky.net/forecast/" + key + '/' + latitude + ',' + longitude + "?callback=?", function(forecast) {
+                // Extract values for current temperature.
+                var temperature = forecast.currently.temperature,
+                    humidity = forecast.currently.humidity,
+                    icon = forecast.currently.icon,
+                    summary = forecast.currently.summary,
+                    precipChance = forecast.currently.precipProbability,
+                    windSpeed = forecast.currently.windSpeed,
+                    location = forecast.timezone;
+
+                // Apply values to the HTML.
+                $('#location').text(location);
+                $('#icon').text(icon);
+                $('#temperature').text(temperature);
+                $('#precipChance').text(precipChance);
+                $('#summary').text(summary);
+                $('#windSpeed').text(windSpeed);
+                $('#humidity').text(humidity);
+
                 console.log(forecast);
+                // console.log(forecast.currently.humidity);
             });
+        }
+
+        function prettify(string) {
+          return string.replace([/], ',');
         }
     }
     getCoordinates(); // <-- hopefully this works.

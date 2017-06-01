@@ -17,36 +17,56 @@
     <div class="bg-image"></div>
     <div class="container-fluid">
         <h1>Weather In Your Area</h1>
+
         <!-- Rounded switch -->
         <div id="switch-button">
-
             <label class="switch">
             <div class="separator"></div>
             <input type="checkbox">
             <div class="slider round"></div>
           </label>
-
         </div>
+
         <!-- Container for weather conditions. -->
         <div class="center-weather">
             <!-- Make the bg box transparent -->
             <div class="opacity"></div>
+            <p id="location">Location</p>
+            <hr>
             <!-- But make the text not transparent -->
             <div class="weather-info">
-                <div class="icon">
-                    <p>Weather Icon</p>
+                <div class="box" id="icon">ICON</div>
+                <!-- Weather Icon & temperature -->
+                <div class="box">
+                    <p>Temperature</p>
+                    <div id="temperature"></div>
+                    <div id="type">&#176;F</div>
                 </div>
-                <p id="temperature">XXX</p>
-                <p id="type">F/C &#176;</p>
-                <div class="separator"></div>
 
-                <hr>
-                <p id="location">Location</p>
-                <hr>
-                <p>Additional Info #1</p>
-                <hr>
-                <p>Additional Info #2</p>
+                <div class="box">
+                    <p>Precipitation</p>
+
+                    <div id="precipChance">chance</div>
+                    <div id="type"> %</div>
+                </div>
+
+                <div class="box">
+                    <p>Wind</p>
+                    <div id="windSpeed"></div>
+                    <div id="type"> mph</div>
+                </div>
+
+                <div class="box">
+                    <p>Humidity</p>
+                    <div id="humidity"></div>
+                </div>
+
+                <div class="box">
+                    <p>Summary</p>
+                    <div id="summary"></div>
+                </div>
             </div>
+            <!-- end of flex box -->
         </div>
         <!-- end of main content -->
     </div>
