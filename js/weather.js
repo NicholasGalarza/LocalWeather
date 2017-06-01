@@ -1,20 +1,37 @@
-'use strict'
+$(document).ready(function() {
+    // HTML5 Geolocation.
+    function getCoordinates() {
+        var key = "84d9272c2a6c08552f1e4fb558f1a98d";
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(success);
+        } else {
+            alert("Failed to retrieve your coordinates.");
+        }
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(assignPosition);
-    } else {
-        console.log("Geolocation is not supported by this browser.");
+        function success(position) {
+            var latitude = position.coords.latitude,
+                longitude = position.coords.longitude;
+
+            $.getJSON("https://api.darksky.net/forecast/" + key + '/' + latitude + ',' + longitude + "?callback=?", function(forecast) {
+                console.log(forecast);
+            });
+        }
     }
-}
+    getCoordinates(); // <-- hopefully this works.
+});
 
-function assignPosition(position) {
-  lat = position.coords.latitude;
-  long = position.coords.longitude;
-}
-
-getLocation();
-var lat, long, key = "84d9272c2a6c08552f1e4fb558f1a98d";
+/*
 var xhr = new XMLHttpRequest(),
     darkSkyHTTP = "https://api.darksky.net/forecast/" + key + '/' + lat + ',' + long;
-xhr.open('GET', "", true);
+xhr.open('GET', darkSkyHTTP, true);
+xhr.send();
+xhr.onreadystatechange = processRequest;
+xhr.addEventListener("readystatechange" , processRequest, false);
+
+function processRequest(e) {
+  if (xhr.readyState === 4 && xhr.status === 200) {
+    var weatherData = JSON.parse(xhr.responseText);
+    alert(weatherData);
+  }
+}
+*/
