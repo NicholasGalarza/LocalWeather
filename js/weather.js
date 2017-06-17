@@ -6,6 +6,17 @@ $(document).ready(function() {
         "color": "snow"
     });
 
+    var today = new Date(),
+        dd = today.getDate(),
+        mm = new Array('January', "February", "March", "April", "May", "June", "July", "August", "September", "Octotober", "November", "December"),
+        weekday = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'),
+	      dayOfWeek = weekday[today.getDay()],
+        month = mm[today.getMonth()];
+
+
+    // Render day of week & current date.
+    $('#day-of-week').text(dayOfWeek);
+    $('#date').text(month + ', ' + dd);
     // HTML5 Geolocation.
     function getCoordinates() {
         if (navigator.geolocation) {
@@ -70,7 +81,7 @@ $(document).ready(function() {
             $('#summary').text('"' + summary + '"');
             $('#windSpeed').text(windSpeed);
             $('#humidity').text(humidity);
-
+            $('#measure').html("&#176;F");
             console.log(forecast);
         });
 
@@ -87,17 +98,16 @@ $(document).ready(function() {
                 $('#temperature').hide().fadeIn(2000).text(Math.floor((temperature - 32) * (5 / 9)));
                 $('#high').hide().fadeIn(2000).text(Math.floor((highTemp - 32) * (5 / 9)));
                 $('#low').hide().fadeIn(2000).text(Math.floor((lowTemp - 32) * (5 / 9)));
+                $('#measure').hide().fadeIn(2000).html("&#176;C");
                 fahrenheight = false;
-                return;
             } else {
                 fahrenheight = true;
                 $('#temperature').hide().fadeIn(2000).text(temperature);
                 $('#high').hide().fadeIn(2000).text(highTemp);
                 $('#low').hide().fadeIn(2000).text(lowTemp);
-                return;
+                $('#measure').hide().fadeIn(2000).html("&#176;F");
             }
         });
-
     }
 
     var geoNavigator = getCoordinates();

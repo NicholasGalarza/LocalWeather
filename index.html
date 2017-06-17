@@ -16,7 +16,6 @@
 
 <body id="main">
     <div class="bg-image"></div>
-    <h1>Weather In Your Area</h1>
 
     <div class="main-content">
 
@@ -26,7 +25,7 @@
                 <!-- Make the bg box transparent -->
                 <div class="block-opacity"></div>
                 <div class="location">
-                    <i id="l-icon" class="fa fa-globe fa-lg" aria-hidden="true"></i>
+                    <i id="l-icon" class="fa fa-globe fa-2x" aria-hidden="true"></i>
                     <p id="location">Location</p>
                 </div>
                 <div class="date-time">
@@ -41,14 +40,20 @@
                             <div id="day-of-week"></div>
                             <div id="date"></div>
                         </div>
+                        <!-- vertical line -->
+                        <div id="vertical-line"></div>
                         <!-- temperature -->
-                        <div id="temperature"></div>
-                        <div class="inlineSlash">&#176; / </div>
+                        <div class="temperature">
+                            <div id="temperature"></div>
+                            <div id="measure"></div>
+                        </div>
+                        <!--
                         <div id="high"></div>
                         <div class="inlineSlash">&#176; / </div>
                         <div id="low"></div>
                         <div class="inlineSlash">&#176;</div>
                         <div id="type">F</div>
+                      -->
                     </div>
                 </div>
                 <!-- end of flex box -->

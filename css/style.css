@@ -9,6 +9,7 @@ body, html {
     overflow: hidden;
 }
 
+
 .bg-image {
     /* Background image used */
     background-image: url("https://4.bp.blogspot.com/-24x23Te7b_0/VWcHnvt-5VI/AAAAAAABjT0/TzjTu3JmLKo/s0/Manhattan_Empire_State_Building_uhd.jpg");
@@ -32,41 +33,34 @@ body, html {
     background-color: #474747;
 }
 
-#main h1 {
-    border-bottom: 2px solid snow;
-    color: snow;
-    font-weight: bold;
-    font-family: 'Khula', sans-serif;
-    text-align: center;
-    max-width: 345px;
-    margin-top: 20px;
+#main .main-content {
+
 }
 
-#main .main-content {
-   padding: 5px;
-}
 
 /* Weather-block & block-opacity are utility classes for containing boxes */
+
 .weather-block {
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 10px;
-    color: black;
+    color: snow;
     font-weight: bold;
+    border-radius: 10px;
     position: relative;
 }
 
 .block-opacity {
     box-shadow: 5px 5px 15px black;
-    border: 1px solid white;
+    border: 1px solid #2d2d2d;
     border-radius: 10px;
-    /* Prevent opacity from blurring text */
+    /* Prevent opacity from fading text */
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: white;
-    opacity: .35;
+    background-color: #2d2d2d;
+    opacity: .80;
     z-index: -1;
 }
 
@@ -74,7 +68,7 @@ body, html {
     margin-bottom: 10px;
     margin-top: 5px;
     display: inline-block;
-    overflow: hidden;
+
     text-align: center;
     width: 100%;
 }
@@ -82,66 +76,78 @@ body, html {
 .location p {
     font-size: 20px;
     display: inline;
+    color: snow;
 }
 
 .location i {
-    margin-right: 3px;
-    color: black;
+    margin-right: 5px;
+    color: #ff9000;
 }
 
 #main-weather-info {
-    padding: 15px;
+    padding: 10px;
     width: 90%;
 }
 
 #main-weather-info .box {
-   text-align: center;
-   margin-bottom: 20px;
-   display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    display: block;
 }
 
 #main-weather-info canvas {
-  color: black; 
+    text-align: center;
 }
 
 #main-weather-info p {
-    color: black;
+    color: snow;
     font-weight: bold;
     font-family: 'Khula', sans-serif;
     font-size: 20px;
 }
 
-#main-weather-info #temperature, #high, #low, #type, #precipType, #precipChance, #windSpeed, #humidity, #summary, .inlineSlash {
+
+.date #day-of-week {
+  color: snow;
+  font-size: 25px;
+}
+
+.date #date {
+  color: #ff9000;
+  font-size: 20px;
+}
+
+.temperature #temperature, #measure {
+  color: snow;
+  font-size: 40px;
+  display: inline;
+}
+
+#main-weather-info #temperature, #high, #low, #type, #precipType, #precipChance, #windSpeed, #humidity, #summary, #vertical-line, .inlineSlash {
     display: inline-block;
-    font-size: 20px;
 }
-
-#high {
-    color: #a01010;
-}
-
-#low {
-    color: blue;
-}
-
 
 /* General location of toggle button */
+
 #switch-button {
     margin-top: 3px;
     text-align: center;
-    opacity: .9;
+    position: relative;
+    background-color: snow;
+    border-radius: 10px;
 }
 
 #switch-button p {
-  color: black;
-  margin: 8px;
-  font-size: 30px;
-  font-weight: bold;
-  display: inline;
+    color: #2d2d2d;
+    margin: 8px;
+    font-size: 40px;
+    font-weight: bolder;
+    display: inline;
 }
 
 
 /* The switch - the box around the slider */
+
 .switch {
     position: relative;
     display: inline-block;
@@ -158,6 +164,7 @@ body, html {
 
 
 /* The slider */
+
 .slider {
     position: absolute;
     cursor: pointer;
@@ -165,7 +172,7 @@ body, html {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #2d2d2d;
     -webkit-transition: .4s;
     transition: .4s;
 }
@@ -177,17 +184,17 @@ body, html {
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: white;
+    background-color: snow;
     -webkit-transition: .4s;
     transition: .4s;
 }
 
 input:checked+.slider {
-    background-color: #2196F3;
+    background-color: #2d2d2d;
 }
 
 input:focus+.slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px #2d2d2d;
 }
 
 input:checked+.slider:before {
@@ -214,10 +221,27 @@ input:checked+.slider:before {
 /* Desktop media query */
 
 @media(min-width: 400px) {
-  #main-weather-info {
+    #main-weather-info {
       width: 400px;
-  }
-}
-@media (min-width: 768px) {
+    }
+    .row {
+      display: block;
+    }
+    #vertical-line {
+        border-left: medium snow solid;
+        height: 50px;
+        display: inline-block;
+        margin-left: 25px;
+        margin-right: 25px;
+    }
 
+    .date {
+      display: inline-block;
+    }
+
+    .temperature {
+      display: inline-block;
+    }
 }
+
+@media (min-width: 768px) {}
