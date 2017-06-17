@@ -9,38 +9,39 @@
     <meta name="author" content="Nicholas Galarza">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Khula" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
 </head>
 
 <body id="main">
     <div class="bg-image"></div>
-    <div class="container-fluid">
-        <h1>Weather In Your Area</h1>
+    <h1>Weather In Your Area</h1>
 
-        <div class="outer">
-            <!-- Rounded switch -->
-            <div id="switch-button">
-                <p id="F">F</p>
-                <label class="switch">
-              <input type="checkbox">
-              <div class="slider round"></div>
-              </label>
-                <p id="C">C</p>
-            </div>
+    <div class="main-content">
+
+        <div id="main-weather-info">
             <!-- Container for weather conditions. -->
-            <div class="center-weather">
+            <div class="weather-block">
                 <!-- Make the bg box transparent -->
-                <div class="opacity"></div>
-                <p id="location">Location</p>
-                <hr>
-                <!-- But make the text not transparent -->
-                <div class="weather-info">
-                    <canvas class="box" id="icon"></canvas>
-                    <!-- Weather Icon & temperature -->
-                    <div class="box">
-                        <p>Temperature</p>
+                <div class="block-opacity"></div>
+                <div class="location">
+                    <i id="l-icon" class="fa fa-globe fa-lg" aria-hidden="true"></i>
+                    <p id="location">Location</p>
+                </div>
+                <div class="date-time">
+                </div>
+
+                <canvas class="box" id="icon"></canvas>
+                <!-- Weather Icon & temperature -->
+                <div class="box">
+                    <div class="row">
+                        <!-- date -->
+                        <div class="date">
+                            <div id="day-of-week"></div>
+                            <div id="date"></div>
+                        </div>
+                        <!-- temperature -->
                         <div id="temperature"></div>
                         <div class="inlineSlash">&#176; / </div>
                         <div id="high"></div>
@@ -49,38 +50,24 @@
                         <div class="inlineSlash">&#176;</div>
                         <div id="type">F</div>
                     </div>
-
-                    <div class="box">
-                        <p>Precipitation</p>
-
-                        <div id="precipChance"></div>
-                        <div id="type"> %</div>
-                    </div>
-
-                    <div class="box">
-                        <p>Wind</p>
-                        <div id="windSpeed"></div>
-                        <div id="type"> (mph)</div>
-                    </div>
-
-                    <div class="box">
-                        <p>Humidity</p>
-                        <div id="humidity"></div>
-                    </div>
-
-                    <div class="box">
-                        <p>Summary</p>
-                        <div id="summary"></div>
-                    </div>
                 </div>
                 <!-- end of flex box -->
             </div>
+            <!-- Rounded switch -->
+            <div id="switch-button">
+
+                <p id="F">F</p>
+                <label class="switch">
+                  <input type="checkbox">
+                  <div class="slider round"></div>
+                  </label>
+                <p id="C">C</p>
+            </div>
         </div>
-        <!-- end of main content -->
+
     </div>
-    <!-- end of container -->
+    <!-- end of main content -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js "></script>
     <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
     <script type="text/javascript" src="js/weather.js"></script>
 
